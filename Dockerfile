@@ -19,22 +19,13 @@ ENV KRB5_CONFIG=/opt/hathi-client/conf/krb5.conf
 ENV HADOOP_HOME=/opt/hathi-client/hadoop-2.6.0
 ENV HADOOP_CONF=/opt/hathi-client/hadoop-2.6.0/etc/hadoop
 ENV HADOOP_CONF_DIR=/opt/hathi-client/hadoop-2.6.0/etc/hadoop
-ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/jovyan/hathi-client/hadoop-2.6.0/bin
+ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hathi-client/hadoop-2.6.0/bin
 ENV PYSPARK_PYTHON=/opt/conda/envs/python2/bin/python2
 
 RUN cd /usr/local/spark/conf/ && \
     echo spark.driver.memory 16g > spark-defaults.conf
 
 USER jovyan
-
-ENV CLIENT_DIR=/opt/hathi-client
-ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
-ENV KRB5_CONFIG=/opt/hathi-client/conf/krb5.conf
-ENV HADOOP_HOME=/opt/hathi-client/hadoop-2.6.0
-ENV HADOOP_CONF=/opt/hathi-client/hadoop-2.6.0/etc/hadoop
-ENV HADOOP_CONF_DIR=/opt/hathi-client/hadoop-2.6.0/etc/hadoop
-ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/jovyan/hathi-client/hadoop-2.6.0/bin
-ENV PYSPARK_PYTHON=/opt/conda/envs/python2/bin/python2
 
 RUN /opt/conda/envs/python2/bin/pip install snakebite
 
