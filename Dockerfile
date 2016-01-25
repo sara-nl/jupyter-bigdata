@@ -32,4 +32,7 @@ USER jovyan
 RUN /opt/conda/envs/python2/bin/pip install snakebite
 
 USER root
+
 COPY start-notebook.sh /usr/local/bin/
+
+USER jovyan
