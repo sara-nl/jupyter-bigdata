@@ -39,5 +39,3 @@ ENTRYPOINT ["tini", "--"]
 CMD ["start-notebook.sh"]
 
 COPY start-notebook.sh /usr/local/bin/
-
-USER jovyan
