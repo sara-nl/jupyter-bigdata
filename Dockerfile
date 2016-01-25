@@ -32,3 +32,12 @@ USER jovyan
 RUN /opt/conda/envs/python2/bin/pip install snakebite
 
 USER root
+
+EXPOSE 8888
+WORKDIR /home/$NB_USER/work
+ENTRYPOINT ["tini", "--"]
+CMD ["start-notebook.sh"]
+
+COPY start-notebook.sh /usr/local/bin/
+
+USER jovyan
