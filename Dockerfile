@@ -7,7 +7,7 @@ RUN apt-get install -yq \
     python-krbv \
     libkrb5-dev \
     libsasl2-dev \
-    ibsasl2-modules-gssapi-heimdal 
+    libsasl2-modules-gssapi-heimdal 
 
 RUN cd /opt && \
     git clone https://github.com/sara-nl/hathi-client
