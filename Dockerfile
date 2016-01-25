@@ -31,6 +31,7 @@ USER jovyan
 
 RUN /opt/conda/envs/python2/bin/pip install snakebite
 
+RUN mkdir /home/jovyan/bin
 COPY kinit.sh /home/jovyan/bin
 RUN chmod 755 /home/jovyan/bin/kinit.sh
 
