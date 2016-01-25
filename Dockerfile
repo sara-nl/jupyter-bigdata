@@ -33,9 +33,11 @@ RUN /opt/conda/envs/python2/bin/pip install snakebite
 
 USER root
 
+COPY start-notebook_.sh /usr/local/bin/
+
 EXPOSE 8888
 WORKDIR /home/$NB_USER/work
 ENTRYPOINT ["tini", "--"]
-CMD ["start-notebook.sh"]
+CMD ["start-notebook_.sh"]
 
-COPY start-notebook.sh /usr/local/bin/
+
