@@ -13,13 +13,16 @@ RUN apt-get -y update && \
 RUN cd /opt && \
     git clone https://github.com/sara-nl/hathi-client
 
+COPY kinit.sh /opt/hathi-client
+RUN chmod 755 /opt/hathi-client/kinit.sh
+
 ENV CLIENT_DIR=/opt/hathi-client
 ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
 ENV KRB5_CONFIG=/opt/hathi-client/conf/krb5.conf
 ENV HADOOP_HOME=/opt/hathi-client/hadoop-2.6.0
 ENV HADOOP_CONF=/opt/hathi-client/hadoop-2.6.0/etc/hadoop
 ENV HADOOP_CONF_DIR=/opt/hathi-client/hadoop-2.6.0/etc/hadoop
-ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hathi-client/hadoop-2.6.0/bin:/home/jovyan/bin
+ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hathi-client/hadoop-2.6.0/bin::/opt/hathi-client
 ENV PYSPARK_PYTHON=/opt/conda/envs/python2/bin/python2
 
 ENV PASSWORD 'spark@uvahpc'
@@ -30,9 +33,5 @@ RUN cd /usr/local/spark/conf/ && \
 USER jovyan
 
 RUN /opt/conda/envs/python2/bin/pip install snakebite
-
-RUN mkdir /home/jovyan/bin
-COPY kinit.sh /home/jovyan/bin
-RUN chmod 755 /home/jovyan/bin/kinit.sh
 
 USER root
