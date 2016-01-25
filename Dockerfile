@@ -31,8 +31,5 @@ USER jovyan
 
 RUN /opt/conda/envs/python2/bin/pip install snakebite
 
-COPY kinit.sh /home/jovyan
-
-CMD kinit.sh
-
 USER root
+COPY start-notebook.sh /usr/local/bin/
