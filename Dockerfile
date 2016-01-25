@@ -2,7 +2,8 @@ FROM jupyter/all-spark-notebook
 
 USER root
 
-RUN apt-get install -yq \
+RUN apt-get -y update && \
+	apt-get install -yq \
     krb5-user \
     python-krbv \
     libkrb5-dev \
