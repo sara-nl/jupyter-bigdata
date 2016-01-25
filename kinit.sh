@@ -5,4 +5,4 @@ else
 	export VMNAME=hadws1
 fi
 
-kinit -k -t /home/jovyan/docker_mount/hadws.keytab "$VMNAME"@CUA.SURFSARA.NL
+kinit -k -t /home/jovyan/keytab_mount/hadws.keytab "$VMNAME"@CUA.SURFSARA.NL
