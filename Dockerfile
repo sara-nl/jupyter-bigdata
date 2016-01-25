@@ -22,6 +22,8 @@ ENV HADOOP_CONF_DIR=/opt/hathi-client/hadoop-2.6.0/etc/hadoop
 ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hathi-client/hadoop-2.6.0/bin
 ENV PYSPARK_PYTHON=/opt/conda/envs/python2/bin/python2
 
+ENV PASSWORD 'spark@uvahpc'
+
 RUN cd /usr/local/spark/conf/ && \
     echo spark.driver.memory 16g > spark-defaults.conf
 
@@ -29,6 +31,8 @@ USER jovyan
 
 RUN /opt/conda/envs/python2/bin/pip install snakebite
 
-ENV PASSWORD 'spark@uvahpc'
+COPY kinit.sh /home/jovyan
+
+CMD kinit.sh
 
 USER root
