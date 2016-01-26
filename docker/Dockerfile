@@ -32,6 +32,7 @@ RUN cd /usr/local/spark/conf/ && \
 
 USER jovyan
 
-RUN /opt/conda/envs/python2/bin/pip install snakebite
+RUN /opt/conda/envs/python2/bin/pip install "snakebite[kerberos]"
+RUN /opt/conda/envs/python2/bin/pip install test_helper
 
 USER root
