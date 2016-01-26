@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ -f /media/cdrom/context.sh ]
 then
 	source /media/cdrom/context.sh
