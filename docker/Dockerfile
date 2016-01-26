@@ -11,7 +11,8 @@ RUN apt-get -y update && \
     libsasl2-modules-gssapi-heimdal 
 
 RUN cd /opt && \
-    git clone https://github.com/sara-nl/hathi-client
+    git clone https://github.com/sara-nl/hathi-client && \
+    cp /opt/hathi-client/conf/krb5.conf /etc/krb5.conf
 
 COPY kinit.sh /opt/hathi-client
 RUN chmod 755 /opt/hathi-client/kinit.sh
