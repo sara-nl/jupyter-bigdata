@@ -20,16 +20,14 @@ RUN chmod 755 /opt/hathi-client/kinit.sh
 ENV CLIENT_DIR=/opt/hathi-client
 ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
 ENV KRB5_CONFIG=/opt/hathi-client/conf/krb5.conf
-ENV HADOOP_HOME=/opt/hathi-client/hadoop-2.6.0
-ENV HADOOP_CONF=/opt/hathi-client/hadoop-2.6.0/etc/hadoop
-ENV HADOOP_CONF_DIR=/opt/hathi-client/hadoop-2.6.0/etc/hadoop
-ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hathi-client/hadoop-2.6.0/bin::/opt/hathi-client
+ENV HADOOP_HOME=/opt/hathi-client/hadoop
+ENV HADOOP_CONF=/opt/hathi-client/hadoop/etc/hadoop
+ENV HADOOP_CONF_DIR=/opt/hathi-client/hadoop/etc/hadoop
+ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hathi-client/hadoop/bin::/opt/hathi-client
 ENV PYSPARK_PYTHON=/opt/conda/envs/python2/bin/python2
 
-ENV PASSWORD 'spark@uvahpc'
-
 RUN cd /usr/local/spark/conf/ && \
-    echo spark.driver.memory 16g > spark-defaults.conf
+    echo spark.driver.memory 32g > spark-defaults.conf
 
 USER jovyan
 
