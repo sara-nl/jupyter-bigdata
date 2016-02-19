@@ -12,7 +12,8 @@ RUN apt-get -y update && \
 
 RUN cd /opt && \
     git clone https://github.com/sara-nl/hathi-client && \
-    cp /opt/hathi-client/conf/krb5.conf /etc/krb5.conf
+    cp /opt/hathi-client/conf/krb5.conf /etc/krb5.conf && \
+    /opt/hathi-client/bin/get.sh hadoop
 
 COPY kinit.sh /opt/hathi-client
 RUN chmod 755 /opt/hathi-client/kinit.sh
