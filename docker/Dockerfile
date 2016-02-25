@@ -28,7 +28,7 @@ ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:
 ENV PYSPARK_PYTHON=/opt/conda/envs/python2/bin/python2
 
 RUN cd /usr/local/spark/conf/ && \
-    echo spark.driver.memory 32g > spark-defaults.conf
+    echo spark.driver.memory 16g > spark-defaults.conf
 
 USER jovyan
 
